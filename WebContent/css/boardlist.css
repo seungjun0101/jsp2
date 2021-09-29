@@ -1,0 +1,44 @@
+/*css 변경이 브라우저에 바로 반영이 안되면 ctrl + f5  */
+
+ul {
+	list-style: none;
+}
+ul #main{/*없어도 된다. 아래랑 비교하기 위해  */
+		display:flex;
+		flex-direction:column;  
+	}
+ul .row {
+		display: flex;
+		flex-direction : row /* 기본값 */
+}
+.row > li{
+	padding: 3px 0px;
+}
+.row > li:nth-child(1){
+	flex-basis:10%;
+}	
+.row > li:nth-child(2){
+	flex-basis:35%;
+}
+.row > li:nth-child(3){
+	flex-basis:25%;
+}
+.row > li:nth-child(4){
+	flex-basis:10%;
+}
+.row > li:nth-child(5){
+	flex-basis:20%;
+}
+
+/*
+	li {
+		padding : 5px  20px;
+		margin : 5px 0px;
+		border: 1px solid gray;
+		border-radius: 3px;
+		width: 10vw;
+	}
+		justify-content: space-between;
+		padding-inline-start:0px;  
+
+*/	

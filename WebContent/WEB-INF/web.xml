@@ -7,6 +7,12 @@
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
+  <!--http://localhost:8083/jsp2/ 와 같이 파일명 지정하지 않고 context(프로젝트이름)로만 
+  	    요청을 했을때 응답으로 처리될 파일을 지정할 수 있습니다.  
+  	  web.xml 파일은 deployment descriptor(배포 기술(설명)자)
+  	  : 웹 프로젝트의 일반적인 사항들을 설정하는 파일.
+  	  : tomcat 서버가 웹애플리케이션을 어떻게 동작시켜야 할지를 알려주는 파일
+  	    -->
 </web-app>

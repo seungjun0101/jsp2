@@ -1,6 +1,7 @@
 package dto;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +18,7 @@ public class Freeboard {
 	private String subject;
 	private String content;
 	private int readCount;
-	private Date wdate;
+	private Timestamp wdate; //Date 타입은 날짜만 가져오고 시간은 못가져옴
 	private String ip;
 	private short commentCount;
 

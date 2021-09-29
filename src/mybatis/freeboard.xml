@@ -2,16 +2,41 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <!--sql mapper  -->
+<!-- sql mapper   -->  
 <mapper namespace="freeboard"> <!-- namespace : 일종의 식별역할의 변수 -->
-
 	
+	<select id="getList" resultType="dto.Freeboard" parameterType="java.util.Map">
+		select * from freeboard f order by idx desc limit #{startNo},#{pageSize}
+	</select>
+	<select id="selectByIdx" resultType="dto.Freeboard" parameterType="int">
+		select * from freeboard where idx=#{idx}
+	</select>
+	<select id="getCount" resultType="int" >
+		select count(*) from freeboard
+	</select>
+	
+	<insert id="insert" parameterType="dto.Freeboard" useGeneratedKeys="true"
+		keyColumn="idx" keyProperty="idx">
+	<!--insert 후에 자동증가 컬럼값 가져오기 : useGeneratedKeys="true" 
+		데이터베이스에서 자동증가 컬럼 : keyColumn="idx", 매핑되는 dto 클래스의 변수명 :keyProperty -->
+		insert into freeboard(name,password,subject,content,ip)
+		values(#{name},#{password},#{subject},#{content},#{ip})
+	</insert>
+	
+	<update id="update" parameterType="dto.Freeboard"> 
+		update freeboard set subject =#{subject},content =#{content}  where idx = #{idx}
+	</update>
+	
+	<delete id="delete" parameterType="java.util.Map"> <!-- 글 비밀번호 확인하고 삭제  -->
+		 delete from freeboard where idx = #{idx} and password = #{password}
+	</delete>
+	
+	<select id="passwordCheck" resultType="dto.Freeboard" parameterType="java.util.Map">
+		select * from freeboard where idx=#{idx} and password = #{password}
+	</select>
 </mapper>
-<!--${} : 표현식 . 중괄호안에 수식에 대한 결과값을 구해서 출력 
-	#{} : 무조건 문자열(''기호사용)로 중괄호 안의 값을 처리합니다.
--->
-
-
+<!-- ${ } : 표현식. 중괄호안에 수식에 대한 연산결과값을 구해서 출력
+     #{ } : 무조건 문자열(' '기호사용)로 중괄호 안의 값을 처리합니다. -->
 
 
 
