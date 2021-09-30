@@ -41,7 +41,7 @@ ul {
 	color:#1A237E;
 }
 #content{
-	min-height: 50vh;
+	min-height: 50%;
 	
 }
 #content li:first-child {
@@ -111,6 +111,13 @@ span {
         flex-direction: column;
     }
 }
+pre{
+	font-size: 1.2em;
+	color:blue;
+	padding-bottom: 10px;
+	line-height:1.5em;
+	font-family: 맑은고딕, Malgun Gothic, sans-serif;
+}
 
 
 /*글 비밀번호 입력 모달  */
@@ -125,6 +132,8 @@ span {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+
+
 
 /* 글 비밀번호 입력 모달 */
 .modal {

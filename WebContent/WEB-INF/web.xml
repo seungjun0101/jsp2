@@ -9,6 +9,20 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- 에러페이지 설정 : 개발과 테스트가 완료된 후에 애플리케이션 배포,서비스가 사용될 때 동작시킵니다.  -->
+  <!--404 status code 발생시 보여질 파일(url) 설정  -->
+<!--   <error-page>
+  	<error-code>404</error-code>
+  	<location>/error/error_404.jsp</location>
+  </error-page> -->
+  
+  <!-- 에러페이지는 에러 유형에 따라  여러개 설정할 수 있음. Exception 유형으로 설정할 수도 있음. -->
+<!--   <error-page>
+  	<exception-type>java.lang.NumberFormatException</exception-type>
+  	<location>/error/error_number.jsp</location>
+  </error-page> -->
+  
   <!--http://localhost:8083/jsp2/ 와 같이 파일명 지정하지 않고 context(프로젝트이름)로만 
   	    요청을 했을때 응답으로 처리될 파일을 지정할 수 있습니다.  
   	  web.xml 파일은 deployment descriptor(배포 기술(설명)자)

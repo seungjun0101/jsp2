@@ -52,9 +52,54 @@ select * from freeboard order by idx desc;
 delete from freeboard where idx = 215 and password = '1111'; 
 delete from freeboard where idx = 215; 
 
+-- 글 비밀번호 체크
+select * from freeboard where idx=159 and password ='1111'; -- 옳바른 비번
+select * from freeboard where idx=159 and password ='1121'; -- 잘못된 비번
 
+-- 댓글 테이블 : board_comment
+create table board_comment(
+	idx int not null auto_increment,
+	mref int not null, -- 메인글(부모글)의 idx
+	name varchar(30) not null,       -- 작성자
+	password varchar(10) not null,   -- 글비밀번호
+	content varchar(2000) not null,  -- 글내용
+	wdate timestamp default current_timestamp, -- 서버의 현재날짜/시간
+	ip varchar(15) default '127.0.0.1',   	  -- 작성자 ip
+	primary key(idx),
+	foreign key(mref) references freeboard(idx)
+);
+select * from board_comment order by idx desc;
 
+insert into board_comment (mref,name,password ,content,ip) 
+values(142,'사나','1234','무사히 보내','192.168.17.11');
+insert into board_comment (mref,name,password ,content,ip) 
+values(142,'사나','1234','무사히 보내','192.168.17.11');
+insert into board_comment (mref,name,password ,content,ip) 
+values(142,'사나','1234','무사히 보내','192.168.17.11');
 
+insert into board_comment (mref,name,password ,content,ip) 
+values(154,'사나','1234','무사히 보내','192.168.17.11');
+-- 1)
+insert into board_comment (mref,name,password ,content,ip) 
+values(154,'사나','1234','무사히 보내','192.168.17.11');
+
+select * from freeboard order by idx desc limit 0,15;  -- 1페이지 목록
+-- 댓글 개수(글목록에서 필요)
+select count(*) from board_comment where mref= 142; -- 142번글의 댓글 갯수
+select count(*) from board_comment where mref= 154;
+
+-- 2)댓글 리스트
+select * from board_comment where mref = 154;
+select * from board_comment where mref = 142;
+
+-- 3)글목록 실행하는 dao.getList() 보다 앞에서 댓글갯수를 update
+update freeboard set commentCount=(
+	select count(*) from board_comment where mref= 142) where idx=142;
+update freeboard set commentCount=(
+	select count(*) from board_comment where mref= 154) where idx=154;
+
+-- 4) 글 상세보기에서 댓글 입력 후 저장 할 때 
+update freeboard set commentCount = commentCount +1 where idx=0;
 
 
 

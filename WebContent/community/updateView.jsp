@@ -15,9 +15,8 @@ function post_data() {
 <body>
 <h3>동아리 커뮤니티 글 수정</h3>
 <hr>
-<form name="frm1" method="post" action="updateSave.jsp">
+<form name="frm1" method="post" action="updateSave.jsp?page=${page }">
 <input type="hidden" name="idx" value="${bean.idx}">
- 
  <table>
  	<tr><th width="35%" >제목</th>
  		<td><input type="text" name="subject" value="${bean.subject}" size="70" required></td>
@@ -35,7 +34,7 @@ function post_data() {
  	<tr><td colspan="2" align="center">
  	<input type="submit" value="저장" class="btn">
  	<input type="reset"  value="다시쓰기" class="btn">
- 	<input type="button" value="목록" class="btn" onclick="location.href='listAction.jsp'">
+ 	<input type="button" value="목록" class="btn" onclick="location.href='listAction.jsp?page=${page}'">
  	</td></tr>
  </table>
  </form>

@@ -24,6 +24,7 @@
   <mappers>
   	<!-- 실행할 SQL 쿼리 저장한 파일. mapper파일위치와 파일명 오류나지 않도록 확인!!! -->
     <mapper resource="mybatis/freeboard.xml"/>
+    <mapper resource="mybatis/comment.xml"/>
     <!--sql mapper 파일은 여러개 사용될 수 있습니다.  -->
   </mappers>
 </configuration>

@@ -30,6 +30,25 @@ ul .row {
 	flex-basis:20%;
 }
 
+.pagenum {
+    border: 1px solid gray;
+    color: #0178b6;
+    padding: 3px 5px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+   text-align:center;
+   font-size: 9pt;
+}
+.pagenum:hover{
+     background-color:gray;
+     color:purple;
+} 
+.current{
+	background-color:gray;
+     color:white;
+}
+
 /*
 	li {
 		padding : 5px  20px;

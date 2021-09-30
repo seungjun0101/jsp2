@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql mapper   -->  
+<mapper namespace="comment">
+	<insert id="insert" parameterType="dto.Comment" >
+		insert into board_comment (mref,name,password ,content,ip) 
+			values(#{mref},#{name},#{password},#{content},#{ip})
+	</insert>
+	<select id="getComments" parameterType="int" resultType="dto.Comment">
+	 	select * from board_comment where mref = #{mref}
+	</select>
+	<!-- 댓글추가/삭제에 모두 적용할 수 있습니다. -->
+	<update id="updateCountAll" parameterType="int">
+		update freeboard set commentCount=(
+		select count(*) from board_comment where mref=#{idx}) where idx=#{idx}	
+	</update>	<!-- 메인글의 idx 가 파라미터입니다. -->
+	
+	<!--이 sql은 freeboard.xml로 이동해도 됩니다. but 댓글테이블이 있어야 동작하니 여기에 놓고 하겠습니다.  -->
+	<update id="updateCommentCnt" parameterType="int">
+		update freeboard set commentCount = commentCount+1 where idx=#{idx}
+	</update>
+	<!--위에꺼는 필요없지만  그냥 둔다 -->
+	
+	<delete id="delete" parameterType="int">
+		delete from board_comment where idx = #{idx}
+	</delete>
+</mapper>
