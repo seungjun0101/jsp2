@@ -34,6 +34,12 @@
 	<select id="passwordCheck" resultType="dto.Freeboard" parameterType="java.util.Map">
 		select * from freeboard where idx=#{idx} and password = #{password}
 	</select>
+	
+	<!--나중에  customer.xml 로 옮기세요. CustomerDao  -->
+	<select id="loginCheck" parameterType="java.util.Map" resultType="dto.Customer">
+		select * from customer where email= #{email}
+		and password =#{password}
+	</select>
 </mapper>
 <!-- ${ } : 표현식. 중괄호안에 수식에 대한 연산결과값을 구해서 출력
      #{ } : 무조건 문자열(' '기호사용)로 중괄호 안의 값을 처리합니다. -->

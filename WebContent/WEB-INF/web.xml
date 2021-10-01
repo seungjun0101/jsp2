@@ -10,6 +10,10 @@
     <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
   
+  <session-config>
+  	<session-timeout>3</session-timeout>
+  </session-config>
+  
   <!-- 에러페이지 설정 : 개발과 테스트가 완료된 후에 애플리케이션 배포,서비스가 사용될 때 동작시킵니다.  -->
   <!--404 status code 발생시 보여질 파일(url) 설정  -->
 <!--   <error-page>
