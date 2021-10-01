@@ -73,4 +73,17 @@ public class FreeboardDao {
 		return dto;
 	}
 
-}
+	public void readCount(int idx) {
+		SqlSession mapper = factory.openSession();
+		mapper.update("readCount",idx);
+		mapper.commit();
+		mapper.close();		
+	}
+	
+	
+	
+	
+	
+	
+	
+}//전체 end

@@ -5,7 +5,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	/*insertView에서 form method가 post니까 지금 들어온 request에 대해서 인코딩을 어떻게해야하는지   */
-	
+//테이블에 insert	
 	String subject = request.getParameter("subject");
 	String name = request.getParameter("name");
 	String password = request.getParameter("password");
